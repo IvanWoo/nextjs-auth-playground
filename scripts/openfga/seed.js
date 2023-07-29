@@ -26,9 +26,9 @@ async function writeAuthzModel(storeId) {
     storeId: storeId,
   });
   const model = readJSON(MODEL_JSON_FILE);
-  const { authorization_model_id: authzId } =
+  const { authorization_model_id: modelId } =
     await fgaClient.writeAuthorizationModel(model);
-  return authzId;
+  return { modelId: modelId };
 }
 
 async function main() {
@@ -51,8 +51,8 @@ async function main() {
     name: storeName,
   });
   console.log(`storeId: ${storeId}`);
-  const { authzId } = await writeAuthzModel(storeId);
-  console.log(`authzId: ${authzId}`);
+  const { modelId } = await writeAuthzModel(storeId);
+  console.log(`modelId: ${modelId}`);
 }
 
 main();

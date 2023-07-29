@@ -3,6 +3,8 @@ model
 type user
 type document
   relations
-    define reader: [user]
-    define writer: [user]
     define owner: [user]
+    define writer: [user]
+    define reader: [user]
+    define can_read: reader or writer or owner
+    define can_write: writer or owner

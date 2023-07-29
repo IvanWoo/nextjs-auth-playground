@@ -45,11 +45,15 @@ $ yarn run list-routes
 /api/hello
 /api/session
 /api/wall
+/api/[document]/read
+/api/[document]/write
 /api/auth/[auth0]
 --- API Routes ---
 /hello
 /session
 /wall
+/[document]/read
+/[document]/write
 /auth/[auth0]
 ```
 

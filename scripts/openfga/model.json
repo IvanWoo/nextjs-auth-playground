@@ -7,19 +7,61 @@
         {
             "type": "document",
             "relations": {
-                "reader": {
+                "owner": {
                     "this": {}
                 },
                 "writer": {
                     "this": {}
                 },
-                "owner": {
+                "reader": {
                     "this": {}
+                },
+                "can_read": {
+                    "union": {
+                        "child": [
+                            {
+                                "computedUserset": {
+                                    "object": "",
+                                    "relation": "reader"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "object": "",
+                                    "relation": "writer"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "object": "",
+                                    "relation": "owner"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "can_write": {
+                    "union": {
+                        "child": [
+                            {
+                                "computedUserset": {
+                                    "object": "",
+                                    "relation": "writer"
+                                }
+                            },
+                            {
+                                "computedUserset": {
+                                    "object": "",
+                                    "relation": "owner"
+                                }
+                            }
+                        ]
+                    }
                 }
             },
             "metadata": {
                 "relations": {
-                    "reader": {
+                    "owner": {
                         "directly_related_user_types": [
                             {
                                 "type": "user"
@@ -33,12 +75,18 @@
                             }
                         ]
                     },
-                    "owner": {
+                    "reader": {
                         "directly_related_user_types": [
                             {
                                 "type": "user"
                             }
                         ]
+                    },
+                    "can_read": {
+                        "directly_related_user_types": []
+                    },
+                    "can_write": {
+                        "directly_related_user_types": []
                     }
                 }
             }

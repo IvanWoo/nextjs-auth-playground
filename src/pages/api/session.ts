@@ -1,4 +1,3 @@
-import { decodeCookieSession } from "@/lib/decode";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { withApiAuthRequired } from "@auth0/nextjs-auth0";
 
