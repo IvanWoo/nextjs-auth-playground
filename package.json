@@ -7,14 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "list-routes": "node scripts/listRoutes.js"
+    "list-routes": "node scripts/listRoutes.js",
+    "openfga:seed": "node -r dotenv/config scripts/openfga/seed.js dotenv_config_path=.env.local "
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^2.7.0",
+    "@openfga/sdk": "^0.2.6",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "dotenv": "^16.3.1",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
