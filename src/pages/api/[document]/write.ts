@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getSession, withApiAuthRequired } from "@auth0/nextjs-auth0";
-import { fgaClient } from "@/lib/authz";
-import { getDocumentFromRequest } from "@/lib/endpoint";
+import { getDocumentFromRequest, isAuthorized } from "@/lib/endpoint";
 
 export default withApiAuthRequired(async function handler(
   req: NextApiRequest,
@@ -12,16 +11,10 @@ export default withApiAuthRequired(async function handler(
     res.status(400).end();
     return;
   }
-  const user = `user:${userClaim.email}`;
   const document = getDocumentFromRequest(req);
   const relation = "can_write";
-  const object = `document:${document}`;
-  const result = await fgaClient.check({
-    user: user,
-    relation,
-    object,
-  });
-  if (!result?.allowed) {
+  const allowed = await isAuthorized(userClaim, document, relation);
+  if (!allowed) {
     res.status(404).end();
     return;
   }
