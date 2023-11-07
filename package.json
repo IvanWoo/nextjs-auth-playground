@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "list-routes": "node scripts/listRoutes.js",
-    "openfga:seed": "node -r dotenv/config scripts/openfga/seed.js dotenv_config_path=.env.local "
+    "test:openfga": "./tests/openfga.sh",
+    "openfga:check": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/check.mjs",
+    "openfga:write": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/write.mjs",
+    "openfga:seed": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/seed.js"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^2.7.0",

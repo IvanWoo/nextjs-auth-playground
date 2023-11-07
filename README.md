@@ -57,6 +57,13 @@ $ yarn run list-routes
 /auth/[auth0]
 ```
 
+### test openfga model
+
+```sh
+$ yarn run openfga:seed
+$ yarn run test:openfga
+```
+
 ## cleanup
 
 tl;dr: `.scripts/down.sh`
