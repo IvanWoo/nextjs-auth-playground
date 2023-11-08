@@ -1,8 +1,8 @@
 datastore:
   engine: mysql
-  uri: "root:password@tcp(openfga-mysql.openfga.svc.cluster.local:3306)/mysql?parseTime=true"
+  uri: "root:password@tcp(openfga-mysql.openfga.svc.cluster.local:3306)/openfga?parseTime=true"
 mysql:
   enabled: true
   auth:
     rootPassword: password
-    database: mysql
+    database: openfga
