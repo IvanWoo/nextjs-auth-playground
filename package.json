@@ -9,6 +9,7 @@
     "lint": "next lint",
     "list-routes": "node scripts/listRoutes.js",
     "test:openfga": "./tests/openfga.sh",
+    "openfga:model": "fga model transform --file='openfga/model.fga' | jq > 'openfga/model.json'",
     "openfga:check": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/check.mjs",
     "openfga:write": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/write.mjs",
     "openfga:seed": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/seed.js"

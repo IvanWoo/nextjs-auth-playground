@@ -1,0 +1,19 @@
+[project]
+name = "tasks"
+version = "0.0.1"
+description = ""
+authors = [{ name = "Yifan Wu", email = "tyivanwu@gmail.com" }]
+dependencies = [
+    "openfga-sdk>=0.3.0",
+    "python-dotenv>=1.0.0",
+    "black>=23.11.0",
+    "pytest>=7.4.3",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+[tool.pdm.scripts]
+lint = "black ./src ./tests"
+test = "pytest tests"
+model = "bash ./scripts/model.sh"
+migrate = "src/tasks/openfga/migrate.py"

@@ -3,7 +3,7 @@ const path = require("path");
 const { OpenFgaClient } = require("@openfga/sdk");
 
 const REPO_DIR = path.join(__dirname, "../../");
-const MODEL_JSON_FILE = path.join(REPO_DIR, "scripts/openfga/model.json");
+const MODEL_JSON_FILE = path.join(REPO_DIR, "openfga/model.json");
 
 function readJSON(path) {
   return JSON.parse(fs.readFileSync(path));
@@ -11,8 +11,8 @@ function readJSON(path) {
 
 function deleteStore(storeId) {
   const openFga = new OpenFgaClient({
-    apiScheme: process.env.FGA_API_SCHEME,
-    apiHost: process.env.FGA_API_HOST,
+    apiScheme: process.env.OPENFGA_API_SCHEME,
+    apiHost: process.env.OPENFGA_API_HOST,
     storeId: storeId,
   });
 
@@ -21,8 +21,8 @@ function deleteStore(storeId) {
 
 async function writeAuthzModel(storeId) {
   const fgaClient = new OpenFgaClient({
-    apiScheme: process.env.FGA_API_SCHEME,
-    apiHost: process.env.FGA_API_HOST,
+    apiScheme: process.env.OPENFGA_API_SCHEME,
+    apiHost: process.env.OPENFGA_API_HOST,
     storeId: storeId,
   });
   const model = readJSON(MODEL_JSON_FILE);
@@ -33,8 +33,8 @@ async function writeAuthzModel(storeId) {
 
 async function main() {
   const openFga = new OpenFgaClient({
-    apiScheme: process.env.FGA_API_SCHEME,
-    apiHost: process.env.FGA_API_HOST,
+    apiScheme: process.env.OPENFGA_API_SCHEME,
+    apiHost: process.env.OPENFGA_API_HOST,
   });
   const storeName = "nextjs_auth_playground";
 

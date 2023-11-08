@@ -11,7 +11,7 @@ async function main(user, relation, object) {
 
 const args = process.argv.slice(2);
 if (args.length < 3) {
-  console.log("Usage: yarn run openfga:write <user> <relation> <object>");
+  console.log("Usage: yarn run openfga:check <user> <relation> <object>");
   process.exit(1);
 }
 main(args[0], args[1], args[2]);
