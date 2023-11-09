@@ -1,7 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-const { OpenFgaClient } = require("@openfga/sdk");
+import fs from "fs";
+import path from "path";
+import { OpenFgaClient } from "@openfga/sdk";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { STORE_NAME } from "./utils.mjs";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_DIR = path.join(__dirname, "../../");
 const MODEL_JSON_FILE = path.join(REPO_DIR, "openfga/model.json");
 
@@ -36,7 +40,7 @@ async function main() {
     apiScheme: process.env.OPENFGA_API_SCHEME,
     apiHost: process.env.OPENFGA_API_HOST,
   });
-  const storeName = "nextjs_auth_playground";
+  const storeName = STORE_NAME;
 
   const { stores } = await openFga.listStores({
     name: storeName,
