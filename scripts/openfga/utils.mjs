@@ -1,4 +1,4 @@
-import { OpenFgaClient } from "@openfga/sdk";
+import { OpenFgaApi, OpenFgaClient } from "@openfga/sdk";
 
 export const STORE_NAME = "nextjs_auth_playground";
 
@@ -19,6 +19,12 @@ async function getStoreId(storeName = STORE_NAME) {
 }
 
 export const fgaClient = new OpenFgaClient({
+  apiScheme: process.env.OPENFGA_API_SCHEME,
+  apiHost: process.env.OPENFGA_API_HOST,
+  storeId: await getStoreId(),
+});
+
+export const fgaApi = new OpenFgaApi({
   apiScheme: process.env.OPENFGA_API_SCHEME,
   apiHost: process.env.OPENFGA_API_HOST,
   storeId: await getStoreId(),
