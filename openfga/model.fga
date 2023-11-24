@@ -11,7 +11,7 @@ type document
   relations
     define associated_organization: [organization]
     define owner: [user] or member from associated_organization
-    define writer: [user] or member from associated_organization
-    define reader: [user] or member from associated_organization
+    define writer: [user] or owner or member from associated_organization
+    define reader: [user] or owner or member from associated_organization
     define can_read: reader or writer or owner
     define can_write: writer or owner

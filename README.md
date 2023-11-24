@@ -1,5 +1,11 @@
 # nextjs-auth-playground
 
+## requirement
+
+```sh
+brew install openfga/tap/fga
+```
+
 ## setup
 
 tl;dr: `.scripts/up.sh`

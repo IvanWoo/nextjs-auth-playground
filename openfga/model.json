@@ -59,6 +59,12 @@
                 "this": {}
               },
               {
+                "computedUserset": {
+                  "object": "",
+                  "relation": "owner"
+                }
+              },
+              {
                 "tupleToUserset": {
                   "computedUserset": {
                     "object": "",
@@ -78,6 +84,12 @@
             "child": [
               {
                 "this": {}
+              },
+              {
+                "computedUserset": {
+                  "object": "",
+                  "relation": "owner"
+                }
               },
               {
                 "tupleToUserset": {
