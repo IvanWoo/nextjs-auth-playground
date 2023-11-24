@@ -9,8 +9,9 @@
     "lint": "next lint",
     "list-routes": "node scripts/listRoutes.js",
     "test:openfga": "./tests/openfga.sh",
-    "task": "DOTENV_CONFIG_PATH='.env.local' tsx",
+    "task": "tsx",
     "task:transform-model": "yarn task src/lib/tasks/openfga/transform.ts",
+    "task:migrate-authz": "yarn task src/lib/tasks/openfga/migrate.ts",
     "openfga:check": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/check.mjs",
     "openfga:write": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/write.mjs",
     "openfga:read-all": "DOTENV_CONFIG_PATH='.env.local' node -r dotenv/config scripts/openfga/read-all.mjs",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@openfga/syntax-transformer": "^0.2.0-beta.5",
+    "dotenv-expand": "^10.0.0",
     "tsx": "^4.4.0"
   }
 }
