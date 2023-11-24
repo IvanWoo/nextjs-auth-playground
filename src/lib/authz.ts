@@ -8,7 +8,7 @@ async function getStoreId(
   storeName: string
 ) {
   if (storeId != null) {
-    return;
+    return storeId;
   }
   const fgaClient = new OpenFgaClient({
     apiScheme,

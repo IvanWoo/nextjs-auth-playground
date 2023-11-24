@@ -1,6 +1,6 @@
 import { NextApiRequest } from "next";
 import { Claims } from "@auth0/nextjs-auth0";
-import { fgaClient } from "@/lib/authz";
+import { getFgaClient } from "@/lib/authz";
 
 function queryParameterAsString(value: any): string {
   if (typeof value === "string") {
@@ -20,6 +20,7 @@ export async function isAuthorized(
   document: string,
   relation: string
 ): Promise<boolean> {
+  const fgaClient = await getFgaClient();
   const user = `user:${userClaim.email}`;
   const object = `document:${document}`;
   const result = await fgaClient.check({
