@@ -1,3 +1,6 @@
+image:
+  repository: openfga/openfga
+  tag: "v1.3.7"
 datastore:
   engine: mysql
   uri: "root:password@tcp(openfga-mysql.openfga.svc.cluster.local:3306)/openfga?parseTime=true"
