@@ -13,7 +13,7 @@ export function transformModel() {
 }
 
 async function writeAuthzModel() {
-  const fgaClient = getFgaClient();
+  const fgaClient = await getFgaClient();
   const model = readAuthModelJSON();
   console.log(`Target authz model is: ${JSON.stringify(model)}`);
   const { authorization_model_id: modelId } =
