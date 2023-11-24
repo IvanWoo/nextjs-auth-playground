@@ -2,9 +2,17 @@
   "schema_version": "1.1",
   "type_definitions": [
     {
-      "type": "user"
+      "type": "user",
+      "relations": {},
+      "metadata": null
     },
     {
+      "type": "organization",
+      "relations": {
+        "member": {
+          "this": {}
+        }
+      },
       "metadata": {
         "relations": {
           "member": {
@@ -15,89 +23,13 @@
             ]
           }
         }
-      },
-      "relations": {
-        "member": {
-          "this": {}
-        }
-      },
-      "type": "organization"
+      }
     },
     {
-      "metadata": {
-        "relations": {
-          "associated_organization": {
-            "directly_related_user_types": [
-              {
-                "type": "organization"
-              }
-            ]
-          },
-          "can_read": {},
-          "can_write": {},
-          "owner": {
-            "directly_related_user_types": [
-              {
-                "type": "user"
-              }
-            ]
-          },
-          "reader": {
-            "directly_related_user_types": [
-              {
-                "type": "user"
-              }
-            ]
-          },
-          "writer": {
-            "directly_related_user_types": [
-              {
-                "type": "user"
-              }
-            ]
-          }
-        }
-      },
+      "type": "document",
       "relations": {
         "associated_organization": {
           "this": {}
-        },
-        "can_read": {
-          "union": {
-            "child": [
-              {
-                "computedUserset": {
-                  "relation": "reader"
-                }
-              },
-              {
-                "computedUserset": {
-                  "relation": "writer"
-                }
-              },
-              {
-                "computedUserset": {
-                  "relation": "owner"
-                }
-              }
-            ]
-          }
-        },
-        "can_write": {
-          "union": {
-            "child": [
-              {
-                "computedUserset": {
-                  "relation": "writer"
-                }
-              },
-              {
-                "computedUserset": {
-                  "relation": "owner"
-                }
-              }
-            ]
-          }
         },
         "owner": {
           "union": {
@@ -108,28 +40,11 @@
               {
                 "tupleToUserset": {
                   "computedUserset": {
+                    "object": "",
                     "relation": "member"
                   },
                   "tupleset": {
-                    "relation": "associated_organization"
-                  }
-                }
-              }
-            ]
-          }
-        },
-        "reader": {
-          "union": {
-            "child": [
-              {
-                "this": {}
-              },
-              {
-                "tupleToUserset": {
-                  "computedUserset": {
-                    "relation": "member"
-                  },
-                  "tupleset": {
+                    "object": "",
                     "relation": "associated_organization"
                   }
                 }
@@ -146,18 +61,120 @@
               {
                 "tupleToUserset": {
                   "computedUserset": {
+                    "object": "",
                     "relation": "member"
                   },
                   "tupleset": {
+                    "object": "",
                     "relation": "associated_organization"
                   }
                 }
               }
             ]
           }
+        },
+        "reader": {
+          "union": {
+            "child": [
+              {
+                "this": {}
+              },
+              {
+                "tupleToUserset": {
+                  "computedUserset": {
+                    "object": "",
+                    "relation": "member"
+                  },
+                  "tupleset": {
+                    "object": "",
+                    "relation": "associated_organization"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "can_read": {
+          "union": {
+            "child": [
+              {
+                "computedUserset": {
+                  "object": "",
+                  "relation": "reader"
+                }
+              },
+              {
+                "computedUserset": {
+                  "object": "",
+                  "relation": "writer"
+                }
+              },
+              {
+                "computedUserset": {
+                  "object": "",
+                  "relation": "owner"
+                }
+              }
+            ]
+          }
+        },
+        "can_write": {
+          "union": {
+            "child": [
+              {
+                "computedUserset": {
+                  "object": "",
+                  "relation": "writer"
+                }
+              },
+              {
+                "computedUserset": {
+                  "object": "",
+                  "relation": "owner"
+                }
+              }
+            ]
+          }
         }
       },
-      "type": "document"
+      "metadata": {
+        "relations": {
+          "associated_organization": {
+            "directly_related_user_types": [
+              {
+                "type": "organization"
+              }
+            ]
+          },
+          "owner": {
+            "directly_related_user_types": [
+              {
+                "type": "user"
+              }
+            ]
+          },
+          "writer": {
+            "directly_related_user_types": [
+              {
+                "type": "user"
+              }
+            ]
+          },
+          "reader": {
+            "directly_related_user_types": [
+              {
+                "type": "user"
+              }
+            ]
+          },
+          "can_read": {
+            "directly_related_user_types": []
+          },
+          "can_write": {
+            "directly_related_user_types": []
+          }
+        }
+      }
     }
   ]
 }
