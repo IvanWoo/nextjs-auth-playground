@@ -6,10 +6,8 @@ export async function middleware(request: NextRequest) {
   console.log("middleware =>", { url });
   if (request.nextUrl.pathname.startsWith("/api/hello")) {
     console.log("middleware => you are in /api/hello");
-    return NextResponse.next();
-  } else {
-    return NextResponse.next();
   }
+  return NextResponse.next();
 }
 
 export const config = {
