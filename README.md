@@ -52,6 +52,8 @@ $ yarn run list-routes
 /api/[document]/read
 /api/[document]/write
 /api/auth/[auth0]
+/api/proxy/[...path]
+/api/proxy/isolate/endpoint
 --- API Routes ---
 /hello
 /session
@@ -59,6 +61,8 @@ $ yarn run list-routes
 /[document]/read
 /[document]/write
 /auth/[auth0]
+/proxy/[...path]
+/proxy/isolate/endpoint
 ```
 
 ### test openfga model
