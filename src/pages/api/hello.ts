@@ -8,5 +8,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: "John Doe" });
+  const data = req.body;
+  const defaultName = "John Doe";
+  res.status(200).json({ name: data.name || defaultName });
 }
